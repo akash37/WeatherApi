@@ -8,7 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name="sensor")
+@Table(name="sensor_data")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class AverageBySensor {
+public class AverageBySensorRequest {
     private Integer sensorId;
     private Long startTimestamp;
     private Long endTimestamp;
