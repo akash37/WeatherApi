@@ -19,6 +19,9 @@ public class SensorController {
     @Autowired
     SensorService sensorService;
 
+    /*
+        Requirement - 1 -- Register sensor data via an API call
+     */
     @PostMapping("/addSensorData")
     public ResponseEntity<Sensor> addSenorData(@RequestBody Sensor sensorRequest){
         final Sensor sensor = sensorService.addSensorData(sensorRequest);
@@ -42,13 +45,18 @@ public class SensorController {
         return new ResponseEntity<>(listOfSensors, HttpStatus.OK);
     }
 
-
+    /*
+       Requirement - 2.2 -- Average metric value for a specific sensor in a specific date range.
+     */
     @GetMapping("/getAverageSensorDataById")
     public ResponseEntity<AverageBySensorResponse> getAverageSensorDataById(@RequestBody AverageBySensorRequest averageBySensorRequest){
         final AverageBySensorResponse response = sensorService.getAverageSensorDataBySensorIdAndTimeBetween(averageBySensorRequest);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    /*
+        Requirement - 2.1 -- Average metric value (e.g. temperature) for all sensors in a specific date range.
+     */
     @GetMapping("/getAverageSensorData")
     public ResponseEntity<List<AverageBySensorResponse>> getAverageSensorData(@RequestBody AverageMetricRequest averageMetricRequest){
         final List<AverageBySensorResponse> listOfSensors = sensorService.getAverageSensorDataByTimeBetween(averageMetricRequest);
